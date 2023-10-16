@@ -1,6 +1,7 @@
 # Railway Switch
 
-
+#### v0.2
+<p>Buttons added to trigger move of servo motors.</p>
 
 #### v0.1
 <p>Five python scripts to control five servo motors.</p>
