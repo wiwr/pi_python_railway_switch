@@ -1,5 +1,8 @@
 # Railway Switch
 
+#### v0.3
+<p>Leds added to show last direction</p>
+
 #### v0.2
 <p>Buttons added to trigger move of servo motors.</p>
 
