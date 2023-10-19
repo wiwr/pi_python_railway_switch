@@ -28,7 +28,7 @@ html = """<!DOCTYPE html>
 </html>
 """
 
-addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+addr = socket.getaddrinfo('0.0.0.0', 8080)[0][-1]
 s = socket.socket()
 s.bind(addr)
 s.listen(1)
@@ -42,25 +42,30 @@ while True:
         print("request:")
         print(request)
         request = str(request)
-        servo1_on request.find('servo1=on')
-        servo1_off request.find('servo1=off')
+        servo1_on = request.find('servo1=on')
+        servo1_off = request.find('servo1=off')
 
         print( 'servo on = ' + str(servo1_on))
         print( 'servo off = ' + str(servo1_off))
 
         if servo1_on == 8:
             print("servo1 on")
-            servo1.ChangeDutyCycle(2.5)
+            s1.ChangeDutyCycle(2.5)
         if servo1_off == 8:
             print("servo1 off")
-            servo1.ChangeDutyCycle(0)
+            s1.ChangeDutyCycle(0)
 
-        response = html
-        cl.send('HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n')
-        cl.send(response)
+        response = bytes(html, encoding='utf-8')
+        cl.send(b"HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n")
+       # cl.send(response)
         cl.close()
 
     except OSError as e:
         cl.close()
         print('connection closed')
+
+    finally:
+        cl.close()
+        s.close()
+        GPIO.cleanup()
 
