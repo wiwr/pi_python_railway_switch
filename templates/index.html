@@ -12,8 +12,8 @@
       <center>
 	<div>
 	<div class="SwitchName">Switch 1</div>
-        <button class="ButtonLeft" formaction="/switch/1/left" type="submit">Left</button>
-        <button class="ButtonRight" formaction="/switch/1/right" type="submit">Right</button>
+        <button class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
+        <button class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
 	</div>
 	<div>
 	<div class="SwitchName">Switch 2</div>
@@ -37,5 +37,29 @@
 	</div>
       </center>
     </form>
+	<script>
+		function SetSwitch(railwaySwitch, direction) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/control", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			var data = {
+				rsw: railwaySwitch,
+				dir: direction
+			};
+
+			var jsonData = JSON.stringify(data);
+			xhr.onload = function () {
+				if (xhr.status >= 200 && xhr.status < 300) { 
+					console.log(xhr.responseText);
+				} else {
+					console.error('Error: ' + xhr.status);
+				}
+			};
+
+			xhr.send(jsonData);
+
+		}
+	</script>
   </body>
 </html>
