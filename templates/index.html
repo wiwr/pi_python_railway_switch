@@ -11,53 +11,52 @@
     <form method="get">
       <center>
 	<div>
-	<div class="SwitchName">Switch 1</div>
-        <button class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
-        <button class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
+	  <div class="SwitchName">Switch 1</div>
+          <button class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
 	</div>
 	<div>
-	<div class="SwitchName">Switch 2</div>
-        <button class="ButtonLeft" formaction="/switch/2/left" type="submit">Left</button>
-        <button class="ButtonRight" formaction="/switch/2/right" type="submit">Right</button>
+	  <div class="SwitchName">Switch 2</div>
+          <button class="ButtonLeft" onclick="SetSwitch('2', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('2', 'right')">Right</button>
 	</div>
 	<div>
-	<div class="SwitchName">Switch 3</div>
-        <button class="ButtonLeft" formaction="/switch/3/left" type="submit">Left</button>
-        <button class="ButtonRight" formaction="/switch/3/right" type="submit">Right</button>
+	  <div class="SwitchName">Switch 3</div>
+          <button class="ButtonLeft" onclick="SetSwitch('3', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('3', 'right')">Right</button>
 	</div>
 	<div>
-	<div class="SwitchName">Switch 4</div>
-        <button class="ButtonLeft" formaction="/switch/4/left" type="submit">Left</button>
-        <button class="ButtonRight" formaction="/switch/4/right" type="submit">Right</button>
+	  <div class="SwitchName">Switch 4</div>
+          <button class="ButtonLeft" onclick="SetSwitch('4', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('4', 'right')">Right</button>
 	</div>
 	<div>
-	<div class="SwitchName">Switch 5</div>
-        <button class="ButtonLeft" formaction="/switch/5/left" type="submit">Left</button>
-        <button class="ButtonRight" formaction="/switch/5/right" type="submit">Right</button>
+	  <div class="SwitchName">Switch 5</div>
+          <button class="ButtonLeft" onclick="SetSwitch('5', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('5', 'right')">Right</button>
+	</div>
+	<div>
+	  <div class="SwitchName">Switch 6</div>
+          <button class="ButtonLeft" onclick="SetSwitch('6', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('6', 'right')">Right</button>
+	</div>
+	<div>
+	  <div class="SwitchName">Switch 7</div>
+          <button class="ButtonLeft" onclick="SetSwitch('7', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('7', 'right')">Right</button>
+	</div>
+	<div>
+	  <div class="SwitchName">Switch 8</div>
+          <button class="ButtonLeft" onclick="SetSwitch('8', 'left')">Left</button>
+          <button class="ButtonRight" onclick="SetSwitch('8', 'right')">Right</button>
 	</div>
       </center>
     </form>
 	<script>
-		function SetSwitch(railwaySwitch, direction) {
+		function SetSwitch(servo_id, direction) {
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "/control", true);
-			xhr.setRequestHeader("Content-Type", "application/json");
-
-			var data = {
-				rsw: railwaySwitch,
-				dir: direction
-			};
-
-			var jsonData = JSON.stringify(data);
-			xhr.onload = function () {
-				if (xhr.status >= 200 && xhr.status < 300) { 
-					console.log(xhr.responseText);
-				} else {
-					console.error('Error: ' + xhr.status);
-				}
-			};
-
-			xhr.send(jsonData);
+			xhr.open('GET', '/control?direction=${direction}&servo_id=${servo_id}', true);
+			xhr.send();
 
 		}
 	</script>
