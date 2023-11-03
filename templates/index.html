@@ -8,7 +8,6 @@
     <center>
       <h1>Railway Switch</h1>
     </center>
-    <form method="get">
       <center>
 	<div>
 	  <div class="SwitchName">Switch 1</div>
@@ -51,11 +50,13 @@
           <button class="ButtonRight" onclick="SetSwitch('8', 'right')">Right</button>
 	</div>
       </center>
-    </form>
 	<script>
 		function SetSwitch(servo_id, direction) {
+			console.log("test");
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', '/control?direction=${direction}&servo_id=${servo_id}', true);
+			console.log(`/control?direction=${direction}&servo_id=${servo_id}`);
+			xhr.open('GET', `/control?direction=${direction}&servo_id=${servo_id}`, true);
+			console.log(xhr.status);
 			xhr.send();
 
 		}
