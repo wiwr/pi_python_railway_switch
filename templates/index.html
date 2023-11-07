@@ -3,6 +3,7 @@
   <head>
     <title>Railway Switch</title>
     <link rel="stylesheet" href="/static/style.css" />
+<link rel="icon" href="/favicon.ico">
   </head>
   <body>
     <center>
@@ -11,55 +12,72 @@
       <center>
 	<div>
 	  <div class="SwitchName">Switch 1</div>
-          <button class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
+          <button id="servo1-left" class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
+          <button id="servo1-right" class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 2</div>
-          <button class="ButtonLeft" onclick="SetSwitch('2', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('2', 'right')">Right</button>
+          <button id="servo2-left" class="ButtonLeft" onclick="SetSwitch('2', 'left')">Left</button>
+          <button id="servo2-right" class="ButtonRight" onclick="SetSwitch('2', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 3</div>
-          <button class="ButtonLeft" onclick="SetSwitch('3', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('3', 'right')">Right</button>
+          <button id="servo3-left" class="ButtonLeft" onclick="SetSwitch('3', 'left')">Left</button>
+          <button id="servo3-right" class="ButtonRight" onclick="SetSwitch('3', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 4</div>
-          <button class="ButtonLeft" onclick="SetSwitch('4', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('4', 'right')">Right</button>
+          <button id="servo4-left" class="ButtonLeft" onclick="SetSwitch('4', 'left')">Left</button>
+          <button id="servo4-right" class="ButtonRight" onclick="SetSwitch('4', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 5</div>
-          <button class="ButtonLeft" onclick="SetSwitch('5', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('5', 'right')">Right</button>
+          <button id="servo5-left" class="ButtonLeft" onclick="SetSwitch('5', 'left')">Left</button>
+          <button id="servo5-right" class="ButtonRight" onclick="SetSwitch('5', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 6</div>
-          <button class="ButtonLeft" onclick="SetSwitch('6', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('6', 'right')">Right</button>
+          <button id="servo6-left" class="ButtonLeft" onclick="SetSwitch('6', 'left')">Left</button>
+          <button id="servo6-right" class="ButtonRight" onclick="SetSwitch('6', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 7</div>
-          <button class="ButtonLeft" onclick="SetSwitch('7', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('7', 'right')">Right</button>
+          <button id="servo7-left" class="ButtonLeft" onclick="SetSwitch('7', 'left')">Left</button>
+          <button id="servo7-right" class="ButtonRight" onclick="SetSwitch('7', 'right')">Right</button>
 	</div>
 	<div>
 	  <div class="SwitchName">Switch 8</div>
-          <button class="ButtonLeft" onclick="SetSwitch('8', 'left')">Left</button>
-          <button class="ButtonRight" onclick="SetSwitch('8', 'right')">Right</button>
+          <button id="servo8-left" class="ButtonLeft" onclick="SetSwitch('8', 'left')">Left</button>
+          <button id="servo8-right" class="ButtonRight" onclick="SetSwitch('8', 'right')">Right</button>
 	</div>
       </center>
 	<script>
 		function SetSwitch(servo_id, direction) {
-			console.log("test");
 			var xhr = new XMLHttpRequest();
-			console.log(`/control?direction=${direction}&servo_id=${servo_id}`);
 			xhr.open('GET', `/control?direction=${direction}&servo_id=${servo_id}`, true);
-			console.log(xhr.status);
 			xhr.send();
 
+			xhr.onload = function() {
+				var buttonID = `servo${servo_id}-${direction}`;
+				if (direction === 'left') {
+					var button2ID = `servo${servo_id}-right`;
+					var buttonClass = 'ButtonLeft';
+				} else {
+					var button2ID = `servo${servo_id}-left`;
+					var buttonClass = 'ButtonRight';
+				}
+				var button1 = document.getElementById(buttonID);
+				var button2 = document.getElementById(button2ID);
+				removeAllClasses(button1);
+				button1.classList.add(buttonClass);
+				removeAllClasses(button2);
+				button2.classList.add('ButtonNotActive');
+			};
 		}
+
+		function removeAllClasses(element) {
+			element.className = '';
+		}	
 	</script>
   </body>
 </html>
