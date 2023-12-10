@@ -2,12 +2,12 @@
 	background-color: #4caf50; 
 	border: 2px solid #000;
 	color: white;
-	padding: 15px 32px;
+	padding: 5px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 1px 1px;
 	cursor: pointer;
 }
 
@@ -15,12 +15,12 @@
 	background-color: #d11d53; 
 	border: 2px solid #000;
 	color: white;
-	padding: 15px 32px;
+	padding: 5px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 1px 1px;
 	cursor: pointer;
 }
 
@@ -28,12 +28,12 @@
 	background-color: gray; 
 	border: 2px solid #000;
 	color: black;
-	padding: 15px 32px;
+	padding: 5px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 1px 1px;
 	cursor: pointer;
 }
 
@@ -41,10 +41,64 @@
 	background-color: blue; 
 	border: 2px solid #000;
 	color: white;
-	padding: 15px 32px;
+	padding: 5px 2px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 1px 1px;
+}
+
+#buttonArea {
+    background: url('tor.jpg') center/cover no-repeat;	
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContainer {
+    position: absolute;
+    transform-origin: center center;
+}
+
+.buttonContainer:nth-child(1) {
+	top: 70px;
+	left: 400px;
+}
+
+.buttonContainer:nth-child(2) {
+	top: 70px;
+	left: 1150px;
+}
+
+.buttonContainer:nth-child(3) {
+	top: 620px;
+	left: 400px;
+}
+
+.buttonContainer:nth-child(4) {
+	top: 620px;
+	left: 1150px;
+}
+
+.buttonContainer:nth-child(5) {
+	top: 540px;
+	left: 470px;
+}
+
+.buttonContainer:nth-child(6) {
+	top: 590px;
+	left: 600px;
+
+.buttonContainer:nth-child(7) {
+	top: 590px;
+	left: 250px;
+}
+
+.buttonContainer:nth-child(8) {
+	top: 80px;
+	left: 80px;
 }

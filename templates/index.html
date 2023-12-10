@@ -9,48 +9,48 @@
     <center>
       <h1>Railway Switch</h1>
     </center>
-      <center>
-	<div>
-	  <div class="SwitchName">Switch 1</div>
-          <button id="servo1-left" class="ButtonLeft" onclick="SetSwitch('1', 'left')">Left</button>
-          <button id="servo1-right" class="ButtonRight" onclick="SetSwitch('1', 'right')">Right</button>
+      <div id="buttonArea">
+	<div class="buttonContainer">
+	  <div class="SwitchName">S1</div>
+          <button id="servo1-left" class="ButtonLeft" onclick="SetSwitch('1', 'left')">L</button>
+          <button id="servo1-right" class="ButtonRight" onclick="SetSwitch('1', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 2</div>
-          <button id="servo2-left" class="ButtonLeft" onclick="SetSwitch('2', 'left')">Left</button>
-          <button id="servo2-right" class="ButtonRight" onclick="SetSwitch('2', 'right')">Right</button>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S2</div>
+          <button id="servo2-left" class="ButtonLeft" onclick="SetSwitch('2', 'left')">L</button>
+          <button id="servo2-right" class="ButtonRight" onclick="SetSwitch('2', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 3</div>
-          <button id="servo3-left" class="ButtonLeft" onclick="SetSwitch('3', 'left')">Left</button>
-          <button id="servo3-right" class="ButtonRight" onclick="SetSwitch('3', 'right')">Right</button>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S3</div>
+          <button id="servo3-left" class="ButtonLeft" onclick="SetSwitch('3', 'left')">L</button>
+          <button id="servo3-right" class="ButtonRight" onclick="SetSwitch('3', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 4</div>
-          <button id="servo4-left" class="ButtonLeft" onclick="SetSwitch('4', 'left')">Left</button>
-          <button id="servo4-right" class="ButtonRight" onclick="SetSwitch('4', 'right')">Right</button>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S4</div>
+          <button id="servo4-left" class="ButtonLeft" onclick="SetSwitch('4', 'left')">L</button>
+          <button id="servo4-right" class="ButtonRight" onclick="SetSwitch('4', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 5</div>
-          <button id="servo5-left" class="ButtonLeft" onclick="SetSwitch('5', 'left')">Left</button>
-          <button id="servo5-right" class="ButtonRight" onclick="SetSwitch('5', 'right')">Right</button>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S5</div>
+          <button id="servo5-left" class="ButtonLeft" onclick="SetSwitch('5', 'left')">L</button>
+          <button id="servo5-right" class="ButtonRight" onclick="SetSwitch('5', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 6</div>
-          <button id="servo6-left" class="ButtonLeft" onclick="SetSwitch('6', 'left')">Left</button>
-          <button id="servo6-right" class="ButtonRight" onclick="SetSwitch('6', 'right')">Right</button>
+	<!--<div class="buttonContainer">
+	  <div class="SwitchName">S6</div>
+          <button id="servo6-left" class="ButtonLeft" onclick="SetSwitch('6', 'left')">L</button>
+          <button id="servo6-right" class="ButtonRight" onclick="SetSwitch('6', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 7</div>
-          <button id="servo7-left" class="ButtonLeft" onclick="SetSwitch('7', 'left')">Left</button>
-          <button id="servo7-right" class="ButtonRight" onclick="SetSwitch('7', 'right')">Right</button>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S7</div>
+          <button id="servo7-left" class="ButtonLeft" onclick="SetSwitch('7', 'left')">L</button>
+          <button id="servo7-right" class="ButtonRight" onclick="SetSwitch('7', 'right')">R</button>
 	</div>
-	<div>
-	  <div class="SwitchName">Switch 8</div>
-          <button id="servo8-left" class="ButtonLeft" onclick="SetSwitch('8', 'left')">Left</button>
-          <button id="servo8-right" class="ButtonRight" onclick="SetSwitch('8', 'right')">Right</button>
-	</div>
-      </center>
+	<div class="buttonContainer">
+	  <div class="SwitchName">S8</div>
+          <button id="servo8-left" class="ButtonLeft" onclick="SetSwitch('8', 'left')">L</button>
+          <button id="servo8-right" class="ButtonRight" onclick="SetSwitch('8', 'right')">R</button>
+	</div>-->
+      </div>
 	<script>
 		function SetSwitch(servo_id, direction) {
 			var xhr = new XMLHttpRequest();
